@@ -11,6 +11,11 @@ const nextConfig = {
       "images7.memedroid.com",
       "www.google.com",
       "placehold.co",
+      "i.pinimg.com",
+      "example.com",
+      "placeholder.co.com",
+      "picsum.photos",
+      "url.com.co",
     ],
   },
 };
