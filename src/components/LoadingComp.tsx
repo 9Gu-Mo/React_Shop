@@ -7,7 +7,7 @@ import "@/src/styles/component/loading.scss";
 import Lottie from "lottie-react";
 
 // lottie
-import aninationData from "@/public/lottie/Cosmos.json";
+import aninationData from "@/public/lottie/cosmos.json";
 
 export default function LoadingComp() {
   return (
