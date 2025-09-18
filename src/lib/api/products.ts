@@ -7,7 +7,7 @@ const BASE_URL =
 
 export async function fetchProducts(): Promise<Product[]> {
   // 로딩 ui 확인용 코드(실사용x)
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 500));
   const res = await fetch(BASE_URL);
 
   return res.json();

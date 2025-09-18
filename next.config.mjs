@@ -16,6 +16,8 @@ const nextConfig = {
       "placeholder.co.com",
       "picsum.photos",
       "url.com.co",
+      "placehold.co",
+      "images-na.ssl-images-amazon.com",
     ],
   },
 };

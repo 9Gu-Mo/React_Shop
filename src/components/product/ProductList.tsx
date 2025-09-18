@@ -9,8 +9,8 @@ import { Product } from "@/src/types/product.types";
 import { useEffect, useState } from "react";
 
 // component
-import Image from "next/image";
 import LoadingComp from "../LoadingComp";
+import ProductItem from "./ProductItem";
 
 export default function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -28,22 +28,9 @@ export default function ProductList() {
   if (error) return <div>에러 발생: {error}</div>;
 
   return (
-    <ul>
+    <ul className="product max-w-7xl mx-auto">
       {products.map((item) => (
-        <li key={item.id}>
-          <Image
-            alt={item.slug}
-            width={100}
-            height={100}
-            src={item.images[0]}
-          />
-          <p>{item.title}</p>
-          <p>{item.price + "$"}</p>
-          <div>{item.description}</div>
-          {Object.entries(item.category).map((item, idx) => (
-            <div key={idx}>{item}</div>
-          ))}
-        </li>
+        <ProductItem key={item.id} {...item} />
       ))}
     </ul>
   );
