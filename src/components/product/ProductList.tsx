@@ -1,5 +1,6 @@
 "use client";
 
+// api
 import { fetchProducts } from "@/src/lib/api/products";
 
 // type

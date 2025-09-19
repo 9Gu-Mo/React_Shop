@@ -18,6 +18,7 @@ const nextConfig = {
       "url.com.co",
       "placehold.co",
       "images-na.ssl-images-amazon.com",
+      "products.com",
     ],
   },
 };

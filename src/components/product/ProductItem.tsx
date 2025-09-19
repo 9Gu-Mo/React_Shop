@@ -8,17 +8,20 @@ import { Product } from "@/src/types/product.types";
 
 // style
 import "@/src/styles/component/product.scss";
+import Link from "next/link";
 
 export default function ProductItem(props: Product) {
   return (
     <>
       <li key={props.id} className="product-item">
-        <Image
-          alt={props.slug}
-          width={100}
-          height={100}
-          src={props.images[0]}
-        />
+        <Link href={`/products/${props.id}`}>
+          <Image
+            alt={props.slug}
+            width={100}
+            height={100}
+            src={props.images[0]}
+          />
+        </Link>
         <p>{props.title}</p>
         <p>{props.price + "$"}</p>
         <div>{props.description}</div>
