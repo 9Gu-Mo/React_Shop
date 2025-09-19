@@ -19,6 +19,7 @@ const nextConfig = {
       "placehold.co",
       "images-na.ssl-images-amazon.com",
       "products.com",
+      "www.lenovo.com",
     ],
   },
 };

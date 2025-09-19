@@ -24,7 +24,7 @@ export default function ProductItem(props: Product) {
         </Link>
         <p>{props.title}</p>
         <p>{props.price + "$"}</p>
-        <div>{props.description}</div>
+        <div className="line-clamp-3">{props.description}</div>
         {props.category && (
           <div className="category">
             <Image

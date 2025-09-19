@@ -1,3 +1,7 @@
 export default function Home() {
-  return <div>메인페이지</div>;
+  return (
+    <div className="bg-white text-black dark:bg-black dark:text-white">
+      다크모드 테스트
+    </div>
+  );
 }
