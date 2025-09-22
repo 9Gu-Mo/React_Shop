@@ -23,18 +23,23 @@ export default function ProductItem(props: Product) {
           props.slide && "slide",
         )}
       >
-        <Link href={`/products/${props.id}`} className="flex">
+        <div className="flex">
           {props.images.map((item, index) => (
-            <Image
+            <Link
               key={index}
-              alt={props.slug}
-              width={100}
-              height={100}
-              src={props.images[index]}
+              href={`/products/${props.id}`}
               className="basis-1/3"
-            />
+            >
+              <Image
+                alt={props.slug}
+                width={100}
+                height={100}
+                src={props.images[index]}
+                className="w-full"
+              />
+            </Link>
           ))}
-        </Link>
+        </div>
         <p>{props.title}</p>
         <p>{props.price + "$"}</p>
         <div className="line-clamp-3">{props.description}</div>
