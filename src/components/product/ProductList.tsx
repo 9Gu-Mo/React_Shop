@@ -29,10 +29,10 @@ export default function ProductList() {
   if (error) return <div>에러 발생: {error}</div>;
 
   return (
-    <ul className="product max-w-7xl mx-auto">
+    <div className="product max-w-7xl mx-auto border-black border-t-[1px] flex flex-wrap">
       {products.map((item) => (
         <ProductItem key={item.id} {...item} />
       ))}
-    </ul>
+    </div>
   );
 }

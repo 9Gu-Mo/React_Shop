@@ -1,14 +1,11 @@
 .product {
-  @apply border-black border-t-[1px];
-  @apply flex flex-wrap;
-
   &-item {
-    @apply basis-1/2;
-    @apply sm:basis-1/3;
-    @apply border-black border-b-[1px] border-r-[1px];
-
     &:nth-child(3n + 1) {
       @apply border-l-[1px];
+    }
+
+    &.slide {
+      border: none;
     }
   }
 }

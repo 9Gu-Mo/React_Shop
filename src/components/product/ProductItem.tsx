@@ -2,25 +2,38 @@
 
 // component
 import Image from "next/image";
+import Link from "next/link";
 
 // type
 import { Product } from "@/src/types/product.types";
 
 // style
 import "@/src/styles/component/product.scss";
-import Link from "next/link";
+
+// lib
+import clsx from "clsx";
 
 export default function ProductItem(props: Product) {
   return (
     <>
-      <li key={props.id} className="product-item">
-        <Link href={`/products/${props.id}`}>
-          <Image
-            alt={props.slug}
-            width={100}
-            height={100}
-            src={props.images[0]}
-          />
+      <div
+        key={props.id}
+        className={clsx(
+          "product-item basis-1/2 border-b border-r border-black sm:basis-1/3",
+          props.slide && "slide",
+        )}
+      >
+        <Link href={`/products/${props.id}`} className="flex">
+          {props.images.map((item, index) => (
+            <Image
+              key={index}
+              alt={props.slug}
+              width={100}
+              height={100}
+              src={props.images[index]}
+              className="basis-1/3"
+            />
+          ))}
         </Link>
         <p>{props.title}</p>
         <p>{props.price + "$"}</p>
@@ -36,7 +49,7 @@ export default function ProductItem(props: Product) {
             <span>{props.category.name}</span>
           </div>
         )}
-      </li>
+      </div>
     </>
   );
 }

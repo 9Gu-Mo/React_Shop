@@ -9,6 +9,7 @@ export interface Product {
   category?: Category;
   creationAt?: Date;
   updatedAt?: Date;
+  slide?: boolean;
 }
 
 export interface Category {

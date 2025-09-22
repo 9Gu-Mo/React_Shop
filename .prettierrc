@@ -1,4 +1,7 @@
 {
   "printWidth": 80,
-  "jsxSingleAttributePerLine": true
+  "jsxSingleAttributePerLine": true,
+  "plugins": [
+    "prettier-plugin-tailwindcss"
+  ]
 }
