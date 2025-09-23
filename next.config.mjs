@@ -87,6 +87,31 @@ const nextConfig = {
         hostname: "www.lenovo.com",
         pathname: "/**",
       },
+      {
+        protocol: "http",
+        hostname: "www.awesomeshoes.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "http",
+        hostname: "www.more-awesomeshoes.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "http",
+        hostname: "www.test-images.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "es.pinterest.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.pexels.com",
+        pathname: "/**",
+      },
     ],
   },
 };

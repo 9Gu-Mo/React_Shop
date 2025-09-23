@@ -1,5 +1,5 @@
 // types
-import { Product } from "@/src/types/product.types";
+import { Category, Product } from "@/src/types/product.types";
 
 // product list api
 const BASE_URL =
@@ -20,6 +20,16 @@ const DETAIL_URL =
 
 export async function fetchDetail(): Promise<Product[]> {
   const res = await fetch(DETAIL_URL);
+
+  return res.json();
+}
+
+// prdocut category api
+const CATEGORY_URL =
+  process.env.NEXT_CATEGORY_API || "https://api.escuelajs.co/api/v1/categories";
+
+export async function fetchCategory(): Promise<Category[]> {
+  const res = await fetch(CATEGORY_URL);
 
   return res.json();
 }

@@ -30,7 +30,7 @@ export default function ProductSlide() {
       try {
         const res = await fetch("https://api.escuelajs.co/api/v1/products");
         const data = await res.json();
-        const displayData = data.slice(0, 5);
+        const displayData = data.slice(0, 7);
         setSlides(displayData);
       } catch (err: unknown) {
         if (err instanceof Error) {
@@ -56,6 +56,7 @@ export default function ProductSlide() {
         autoHeight
         slidesPerView={3}
         resistanceRatio={0}
+        slidesPerGroup={3}
       >
         {slides
           // .filter((item) => parseInt(item.id) < 190)

@@ -8,6 +8,12 @@
       border: none;
     }
   }
+  a {
+    img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+  }
 }
 
 @media screen and (max-width: 640px) {

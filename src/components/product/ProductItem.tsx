@@ -24,21 +24,28 @@ export default function ProductItem(props: Product) {
         )}
       >
         <div className="flex">
-          {props.images.map((item, index) => (
-            <Link
-              key={index}
-              href={`/products/${props.id}`}
-              className="basis-1/3"
-            >
-              <Image
-                alt={props.slug}
-                width={100}
-                height={100}
-                src={props.images[index]}
-                className="w-full"
-              />
-            </Link>
-          ))}
+          {props.images
+            .filter(
+              (url) =>
+                url.startsWith("http://") ||
+                url.startsWith("https://") ||
+                url.startsWith("/"),
+            )
+            .map((item, index) => (
+              <Link
+                key={index}
+                href={`/products/${props.id}`}
+                className="basis-1/3"
+              >
+                <Image
+                  alt={props.slug}
+                  width={100}
+                  height={100}
+                  src={props.images[index]}
+                  className="w-full"
+                />
+              </Link>
+            ))}
         </div>
         <p>{props.title}</p>
         <p>{props.price + "$"}</p>
