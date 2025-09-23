@@ -11,7 +11,7 @@ export default function Home() {
     },
     {
       label: "Profile",
-      content: <div>프로필 콘텐츠</div>,
+      content: <div>vercel 배포 브랜치 변경 테스트</div>,
     },
     {
       label: "Settings",
