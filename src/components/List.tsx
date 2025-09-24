@@ -16,7 +16,6 @@ import { Category } from "../types/product.types";
 import { fetchCategory } from "../lib/api/products";
 
 // style
-import "@/src/styles/component/list.scss";
 import "aos/dist/aos.css";
 
 export default function List() {
@@ -47,9 +46,9 @@ export default function List() {
           <li
             key={item.id}
             data-aos={index % 2 === 0 ? "fade-down" : "fade-up"}
-            data-aos-delay={50 * index}
+            data-aos-delay={20 * index}
             data-aos-duration="1000"
-            className="relative h-[300px] w-full overflow-hidden rounded-[16px]"
+            className="shrink-1 relative h-[300px] w-full grow-0 basis-[40%] overflow-hidden rounded-[16px] [&:nth-child(4n+1)]:basis-[calc(60%-20px)] [&:nth-child(4n+4)]:basis-[calc(60%-20px)]"
           >
             <Image
               alt={item.name}
