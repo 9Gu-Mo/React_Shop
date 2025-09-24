@@ -60,7 +60,7 @@ export default function Header() {
       {menu && (
         <div
           className={clsx(
-            "nav absolute bottom-0 left-0 top-0 z-10 flex w-full flex-col bg-black/75 sm:w-1/2",
+            "nav absolute left-0 top-0 z-10 flex h-dvh w-full flex-col bg-black/75 sm:w-1/2",
             menu && "active",
           )}
         >
