@@ -9,7 +9,7 @@ export default function IconMenu(props: IconProps) {
       <svg
         width={props.size ? props.size : "20px"}
         height={props.size ? props.size : "20px"}
-        viewBox="0 0 20 20"
+        viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >

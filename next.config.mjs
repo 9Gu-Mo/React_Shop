@@ -112,6 +112,36 @@ const nextConfig = {
         hostname: "images.pexels.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.mubicdn.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "evil.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "static.wikia.nocookie.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "i5-mx.walmartimages.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "tse1.mm.bing.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "onlymuebles.vtexassets.com",
+        pathname: "/**",
+      },
     ],
   },
 };

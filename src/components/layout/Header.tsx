@@ -1,7 +1,6 @@
 "use client";
 
 // component
-import Image from "next/image";
 import Link from "next/link";
 import IconCart from "../icon/IconCart";
 import IconClose from "../icon/IconClose";
@@ -29,6 +28,8 @@ export default function Header() {
 
   const menuToggle = () => {
     setMenu((prev) => !prev);
+
+    document.documentElement.classList.toggle("overflow-hidden");
   };
 
   const darkModeToggle = () => {
@@ -59,24 +60,22 @@ export default function Header() {
       {menu && (
         <div
           className={clsx(
-            "nav sm:right-50 absolute bottom-0 left-0 right-0 top-0 z-10 bg-black/75",
+            "nav absolute bottom-0 left-0 top-0 z-10 flex w-full flex-col bg-black/75 sm:w-1/2",
             menu && "active",
           )}
         >
           {category.map((item) => (
-            <Link href={"#"} key={item.id} className="flex flex-wrap p-1">
-              <Image
-                alt={item.name}
-                width={20}
-                height={20}
-                src={item.image}
-                objectFit="cover"
-                className="h-[20px]"
-              />
-              <span className="text-white">{item.name}</span>
-            </Link>
+            <div key={item.id}>
+              <Link href={"#"} className="inline-block p-1">
+                <span className="text-white">{item.name}</span>
+              </Link>
+            </div>
           ))}
-          <button type="button" onClick={menuToggle}>
+          <button
+            type="button"
+            onClick={menuToggle}
+            className="absolute right-0 top-0 p-1"
+          >
             <IconClose color="#ffffff" />
           </button>
         </div>

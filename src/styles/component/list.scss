@@ -1,0 +1,10 @@
+.list {
+  li {
+    flex: 0 1 40%;
+
+    &:nth-child(4n + 1),
+    &:nth-child(4n + 4) {
+      flex-basis: calc(60% - 20px);
+    }
+  }
+}

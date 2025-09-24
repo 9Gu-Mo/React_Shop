@@ -9,7 +9,7 @@ export default function IconProfile(props: IconProps) {
       <svg
         width={props.size ? props.size : "20px"}
         height={props.size ? props.size : "20px"}
-        viewBox="0 0 20 20"
+        viewBox="0 0 24 24"
         enable-background="new 0 0 20 20"
         id="Stock_cut"
         version="1.1"

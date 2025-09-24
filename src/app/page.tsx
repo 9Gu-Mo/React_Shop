@@ -1,7 +1,6 @@
+import List from "../components/List";
 import ProductSlide from "../components/product/ProductSlide";
 import SmoothTabs from "../components/SmoothTabs";
-
-import "@/src/styles/component/tab.scss";
 
 export default function Home() {
   const tabs = [
@@ -24,8 +23,11 @@ export default function Home() {
       <div className="bg-white text-black dark:bg-black dark:text-white">
         <ProductSlide />
       </div>
-      <div className="tab">
+      <div>
         <SmoothTabs tabs={tabs} />
+      </div>
+      <div className="px-2 sm:px-8">
+        <List />
       </div>
     </>
   );

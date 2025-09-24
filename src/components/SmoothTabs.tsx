@@ -1,8 +1,13 @@
-// components/SmoothTabs.tsx
 "use client";
 
+// lib
 import { AnimatePresence, motion } from "framer-motion";
+
+// hook
 import { useState } from "react";
+
+// style
+import "@/src/styles/component/tab.scss";
 
 interface Tab {
   label: string;
@@ -17,7 +22,7 @@ export default function SmoothTabs({ tabs }: SmoothTabsProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="mx-auto mt-8 w-full max-w-xl">
+    <div className="tab mx-auto mt-8 w-full max-w-xl">
       {/* 탭 버튼 부분 */}
       <div className="relative flex border-b border-gray-200">
         {tabs.map((tab, idx) => (
@@ -45,7 +50,7 @@ export default function SmoothTabs({ tabs }: SmoothTabsProps) {
       </div>
 
       {/* 탭 콘텐츠 부분 */}
-      <div className="relative mt-4">
+      <div className="relative mt-4 h-[300px]">
         <AnimatePresence mode="wait">
           {tabs.map((tab, idx) => {
             if (idx !== activeIndex) return null;
