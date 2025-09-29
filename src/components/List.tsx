@@ -2,6 +2,7 @@
 
 // component
 import Image from "next/image";
+import Modal from "./layout/Modal";
 
 // hook
 import { useEffect, useState } from "react";
@@ -20,6 +21,13 @@ import "aos/dist/aos.css";
 
 export default function List() {
   const [category, setCategory] = useState<Category[]>([]);
+  const [dialog, setDialog] = useState(false);
+
+  const openDialog = () => {
+    setDialog(!dialog);
+
+    document.documentElement.classList.toggle("overflow-hidden");
+  };
 
   useEffect(() => {
     const apiFetch = async () => {
@@ -49,6 +57,7 @@ export default function List() {
             data-aos-delay={20 * index}
             data-aos-duration="1000"
             className="shrink-1 relative h-[300px] w-full grow-0 basis-[40%] overflow-hidden rounded-[16px] [&:nth-child(4n+1)]:basis-[calc(60%-10px)] sm:[&:nth-child(4n+1)]:basis-[calc(60%-20px)] [&:nth-child(4n+4)]:basis-[calc(60%-10px)] sm:[&:nth-child(4n+4)]:basis-[calc(60%-20px)]"
+            onClick={openDialog}
           >
             <Image
               alt={item.name}
@@ -62,6 +71,28 @@ export default function List() {
           </li>
         ))}
       </ul>
+      {dialog && (
+        <Modal title="모달 타이틀" onClick={openDialog}>
+          모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠 모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
+          컨텐츠모달 컨텐츠모달 컨텐츠
+        </Modal>
+      )}
     </>
   );
 }
