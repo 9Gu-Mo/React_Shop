@@ -21,12 +21,18 @@ import "aos/dist/aos.css";
 
 export default function List() {
   const [category, setCategory] = useState<Category[]>([]);
-  const [dialog, setDialog] = useState(false);
+  const [item, setItem] = useState<Category | null>(null);
 
-  const openDialog = () => {
-    setDialog(!dialog);
+  const openItem = (item: Category) => () => {
+    setItem(item);
 
-    document.documentElement.classList.toggle("overflow-hidden");
+    document.documentElement.classList.add("overflow-hidden");
+  };
+
+  const closeItem = () => {
+    setItem(null);
+
+    document.documentElement.classList.remove("overflow-hidden");
   };
 
   useEffect(() => {
@@ -57,7 +63,7 @@ export default function List() {
             data-aos-delay={20 * index}
             data-aos-duration="1000"
             className="shrink-1 relative h-[300px] w-full grow-0 basis-[40%] overflow-hidden rounded-[16px] [&:nth-child(4n+1)]:basis-[calc(60%-10px)] sm:[&:nth-child(4n+1)]:basis-[calc(60%-20px)] [&:nth-child(4n+4)]:basis-[calc(60%-10px)] sm:[&:nth-child(4n+4)]:basis-[calc(60%-20px)]"
-            onClick={openDialog}
+            onClick={openItem(item)}
           >
             <Image
               alt={item.name}
@@ -71,26 +77,9 @@ export default function List() {
           </li>
         ))}
       </ul>
-      {dialog && (
-        <Modal title="모달 타이틀" onClick={openDialog}>
-          모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠 모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달 컨텐츠모달
-          컨텐츠모달 컨텐츠모달 컨텐츠
+      {item && (
+        <Modal onClick={closeItem}>
+          <Image alt={item.name} src={item.image} width={700} height={400} />
         </Modal>
       )}
     </>
