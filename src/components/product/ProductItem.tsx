@@ -1,7 +1,6 @@
 "use client";
 
 // component
-import Image from "next/image";
 import Link from "next/link";
 
 // type
@@ -37,11 +36,9 @@ export default function ProductItem(props: Product) {
                 href={`/products/${props.id}`}
                 className="basis-1/3"
               >
-                <Image
-                  alt={props.slug}
-                  width={100}
-                  height={100}
+                <img
                   src={props.images[index]}
+                  alt={props.slug}
                   className="w-full"
                 />
               </Link>
@@ -52,12 +49,7 @@ export default function ProductItem(props: Product) {
         <div className="line-clamp-3">{props.description}</div>
         {props.category && (
           <div className="category">
-            <Image
-              alt={props.category.name}
-              src={props.category.image}
-              width={32}
-              height={32}
-            />
+            <img src={props.category.image} alt={props.category.name} />
             <span>{props.category.name}</span>
           </div>
         )}

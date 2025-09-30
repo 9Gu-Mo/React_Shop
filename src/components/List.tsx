@@ -1,7 +1,6 @@
 "use client";
 
 // component
-import Image from "next/image";
 import Modal from "./layout/Modal";
 
 // hook
@@ -65,10 +64,9 @@ export default function List() {
             className="shrink-1 relative h-[300px] w-full grow-0 basis-[40%] overflow-hidden rounded-[16px] [&:nth-child(4n+1)]:basis-[calc(60%-10px)] sm:[&:nth-child(4n+1)]:basis-[calc(60%-20px)] [&:nth-child(4n+4)]:basis-[calc(60%-10px)] sm:[&:nth-child(4n+4)]:basis-[calc(60%-20px)]"
             onClick={openItem(item)}
           >
-            <Image
-              alt={item.name}
+            <img
               src={item.image}
-              fill
+              alt={item.name}
               className="h-full w-full object-cover"
             />
             <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center bg-black/50 text-white">
@@ -79,7 +77,10 @@ export default function List() {
       </ul>
       {item && (
         <Modal onClick={closeItem}>
-          <Image alt={item.name} src={item.image} width={700} height={400} />
+          <img src={item.image} alt={item.name} />
+          <div className="absolute bottom-0 left-0 p-4">
+            <p>{item.slug}</p>
+          </div>
         </Modal>
       )}
     </>
