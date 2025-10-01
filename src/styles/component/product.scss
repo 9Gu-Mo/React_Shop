@@ -25,3 +25,21 @@
     }
   }
 }
+
+.detail {
+  .image {
+    width: 400px;
+  }
+
+  .notice {
+    width: calc(100% - 430px);
+  }
+}
+
+.thumb-slide {
+  .swiper-slide {
+    &-thumb-active {
+      border: 1px solid #000;
+    }
+  }
+}

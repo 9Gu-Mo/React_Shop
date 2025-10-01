@@ -55,7 +55,7 @@ export default function Header() {
   return (
     <header className="flex justify-between p-4">
       <button type="button" onClick={menuToggle}>
-        <IconMenu />
+        <IconMenu size="24" />
       </button>
       {menu && (
         <div
@@ -85,10 +85,10 @@ export default function Header() {
       </h1>
       <div className="flex">
         <button type="button">
-          <IconCart />
+          <IconCart color="#1C274C" size="24" />
         </button>
         <button onClick={darkModeToggle} type="button">
-          {mode ? <IconDarkMode /> : <IconWhiteMode />}
+          {mode ? <IconDarkMode size="24" /> : <IconWhiteMode size="24" />}
         </button>
       </div>
     </header>
