@@ -6,3 +6,19 @@
 // html {
 //   font-size: 10px;
 // }
+
+input,
+textarea,
+select {
+  appearance: none;
+  &[type="number"] {
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      appearance: none;
+    }
+  }
+}
+
+svg {
+  display: inline-block;
+}
