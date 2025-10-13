@@ -15,7 +15,6 @@ import { Product } from "@/src/types/product.types";
 
 // style
 import "@/src/styles/component/product.scss";
-import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/thumbs";
 
@@ -43,9 +42,7 @@ export default function ProductDetailComp({ id }: { id: string }) {
   useEffect(() => {
     const fetchDetail = async () => {
       try {
-        const res = await fetch(
-          `https://api.escuelajs.co/api/v1/products/${id}`,
-        );
+        const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`);
         const data = await res.json();
         setDetail(data);
       } catch {
@@ -100,10 +97,7 @@ export default function ProductDetailComp({ id }: { id: string }) {
                 {detail?.images && (
                   <>
                     {Object.entries(detail.images).map(([index, img]) => (
-                      <SwiperSlide
-                        key={index}
-                        className="overflow-hidden rounded-xl"
-                      >
+                      <SwiperSlide key={index} className="h-[128px] overflow-hidden rounded-xl">
                         <img src={img} alt={detail.slug} />
                       </SwiperSlide>
                     ))}
@@ -112,14 +106,9 @@ export default function ProductDetailComp({ id }: { id: string }) {
               </Swiper>
             </div>
             <div className="notice">
-              <div className="mb-1 text-xs uppercase">
-                {detail?.category?.name}
-              </div>
+              <div className="mb-1 text-xs uppercase">{detail?.category?.name}</div>
               <b className="mb-2 block">{detail?.title}</b>
               <p>{detail?.description}</p>
-              <div>
-                <p>{detail?.price}</p>
-              </div>
               <div className="count inline-block rounded-md border border-black">
                 <button
                   type="button"
@@ -135,14 +124,15 @@ export default function ProductDetailComp({ id }: { id: string }) {
                   className="inline-block h-[40px] w-[40px] border-x border-black text-center align-middle text-base/10"
                   readOnly
                 />
-                <button
-                  type="button"
-                  className="inline-block h-[40px] w-[40px] align-middle"
-                  onClick={onCountUp}
-                >
+                <button type="button" className="inline-block h-[40px] w-[40px] align-middle" onClick={onCountUp}>
                   <IconPlus />
                 </button>
               </div>
+              {detail?.price && (
+                <div>
+                  <p>{String(detail.price * count).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "$"}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>

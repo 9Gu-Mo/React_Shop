@@ -17,7 +17,6 @@ import { useEffect, useState } from "react";
 import { Product } from "@/src/types/product.types";
 
 // style
-import "swiper/css";
 import "swiper/css/navigation";
 
 export default function ProductSlide() {
