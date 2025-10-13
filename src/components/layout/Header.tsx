@@ -3,7 +3,6 @@
 // component
 import Link from "next/link";
 import IconCart from "../icon/IconCart";
-import IconClose from "../icon/IconClose";
 import IconDarkMode from "../icon/IconDarkMode";
 import IconMenu from "../icon/IconMenu";
 import IconWhiteMode from "../icon/IconWhiteMode";
@@ -20,6 +19,8 @@ import clsx from "clsx";
 
 // style
 import "@/src/styles/layout/header.scss";
+import { AnimatePresence, motion } from "framer-motion";
+import IconClose from "../icon/IconClose";
 
 export default function Header() {
   const [mode, setMode] = useState(false);
@@ -57,29 +58,30 @@ export default function Header() {
       <button type="button" onClick={menuToggle}>
         <IconMenu size="24" />
       </button>
-      {menu && (
-        <div
-          className={clsx(
-            "nav absolute left-0 top-0 z-10 flex h-dvh w-full flex-col overflow-auto bg-black/75 sm:w-1/2",
-            menu && "active",
-          )}
-        >
-          {category.map((item) => (
-            <div key={item.id}>
-              <Link href={"#"} className="inline-block p-1">
-                <span className="text-white">{item.name}</span>
-              </Link>
-            </div>
-          ))}
-          <button
-            type="button"
-            onClick={menuToggle}
-            className="absolute right-0 top-0 p-1"
+      <AnimatePresence>
+        {menu && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className={clsx(
+              "nav absolute left-0 top-0 z-10 flex h-dvh w-full flex-col overflow-auto bg-black/75 sm:w-1/2",
+              menu && "active",
+            )}
           >
-            <IconClose color="#ffffff" />
-          </button>
-        </div>
-      )}
+            {category.map((item) => (
+              <motion.div key={item.id}>
+                <Link href={"#"} className="inline-block p-1">
+                  <span className="text-white">{item.name}</span>
+                </Link>
+              </motion.div>
+            ))}
+            <button type="button" onClick={menuToggle} className="absolute right-0 top-0 p-1">
+              <IconClose color="#ffffff" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <h1>
         <Link href={"/"}>SHOP LOGO</Link>
       </h1>
