@@ -49,21 +49,12 @@ export default function ProductSlide() {
 
   return (
     <>
-      <Swiper
-        modules={[Navigation]}
-        navigation
-        autoHeight
-        slidesPerView={3}
-        resistanceRatio={0}
-        slidesPerGroup={3}
-      >
-        {slides
-          // .filter((item) => parseInt(item.id) < 190)
-          .map((item) => (
-            <SwiperSlide key={item.id}>
-              <ProductItem slide {...item} />
-            </SwiperSlide>
-          ))}
+      <Swiper modules={[Navigation]} navigation autoHeight slidesPerView="auto" resistanceRatio={0}>
+        {slides.map((item) => (
+          <SwiperSlide key={item.id} className="w-full sm:w-[33.3333%]">
+            <ProductItem slide {...item} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

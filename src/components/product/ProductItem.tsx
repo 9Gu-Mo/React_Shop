@@ -17,30 +17,14 @@ export default function ProductItem(props: Product) {
     <>
       <div
         key={props.id}
-        className={clsx(
-          "product-item basis-1/2 border-b border-r border-black sm:basis-1/3",
-          props.slide && "slide",
-        )}
+        className={clsx("product-item basis-1/2 border-b border-r border-black sm:basis-1/3", props.slide && "slide")}
       >
         <div className="flex">
           {props.images
-            .filter(
-              (url) =>
-                url.startsWith("http://") ||
-                url.startsWith("https://") ||
-                url.startsWith("/"),
-            )
+            .filter((url) => url.startsWith("http://") || url.startsWith("https://") || url.startsWith("/"))
             .map((item, index) => (
-              <Link
-                key={index}
-                href={`/products/${props.id}`}
-                className="basis-1/3"
-              >
-                <img
-                  src={props.images[index]}
-                  alt={props.slug}
-                  className="w-full"
-                />
+              <Link key={index} href={`/products/${props.id}`} className="basis-1/3">
+                <img src={props.images[index]} alt={props.slug} className="w-full" />
               </Link>
             ))}
         </div>

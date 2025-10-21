@@ -9,6 +9,11 @@ body {
   scroll-behavior: smooth;
 }
 
+p,
+div {
+  word-break: break-all;
+}
+
 input,
 textarea,
 select {
