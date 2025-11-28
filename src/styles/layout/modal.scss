@@ -1,0 +1,14 @@
+.modal {
+  &-wrap {
+    padding: 10px;
+  }
+
+  &-title {
+    height: 34px;
+    line-height: 34px;
+  }
+
+  .inp {
+    flex: 1;
+  }
+}
