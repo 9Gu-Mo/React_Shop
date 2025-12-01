@@ -9,7 +9,7 @@ interface Props {
   className?: string;
   moOnly?: boolean;
   taOnly?: boolean;
-  showOn?: "mo" | "ta" | "de";
+  showOn?: "mo" | "ta" | "de" | "all";
 }
 
 export default function ProductBottomFix({
@@ -24,6 +24,7 @@ export default function ProductBottomFix({
   const { isMo, isTa, isDe } = useDeviceDetect();
 
   const shouldShow = () => {
+    if (showOn === "all") return true;
     if (showOn === "mo") return isMo;
     if (showOn === "ta") return isTa;
     if (showOn === "de") return isDe;

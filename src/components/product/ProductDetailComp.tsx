@@ -192,7 +192,7 @@ export default function ProductDetailComp({ id }: { id: string }) {
           </div>
         </div>
         <div className="bot"></div>
-        <ProductBottomFix showOn="mo">
+        <ProductBottomFix showOn="all">
           <div>ss</div>
         </ProductBottomFix>
       </div>
