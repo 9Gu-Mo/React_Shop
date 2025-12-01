@@ -51,7 +51,7 @@ export default function ProductSlide() {
     <>
       <Swiper modules={[Navigation]} navigation autoHeight slidesPerView="auto" resistanceRatio={0}>
         {slides.map((item) => (
-          <SwiperSlide key={item.id} className="w-full sm:w-[33.3333%]">
+          <SwiperSlide key={item.id} className="sm:w-[33.3333%]">
             <ProductItem slide {...item} />
           </SwiperSlide>
         ))}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import MainLayout from "../components/MainLayout";
 import "../styles/globals.scss";
+import { LayoutProvider } from "../context/LayoutContext";
 
 const notoSans = localFont({
   src: "../../public/fonts/NotoSans/NotoSans-vf.woff",
@@ -24,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${notoSans.variable}`}>
-        <MainLayout>{children}</MainLayout>
+        <LayoutProvider>
+          <MainLayout>{children}</MainLayout>
+        </LayoutProvider>
       </body>
     </html>
   );

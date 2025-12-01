@@ -20,6 +20,7 @@ import { Product } from "@/src/types/product.types";
 import "@/src/styles/component/product.scss";
 import "swiper/css/effect-fade";
 import "swiper/css/thumbs";
+import ProductBottomFix from "./ProductBottomFix";
 
 export default function ProductDetailComp({ id }: { id: string }) {
   // 상품 api state
@@ -91,7 +92,7 @@ export default function ProductDetailComp({ id }: { id: string }) {
     <>
       <div>
         <div className="top">
-          <div className="detail flex flex-wrap md:gap-[30px]">
+          <div className="detail flex flex-wrap gap-[20px] md:gap-[30px]">
             <div className="w-full md:w-[300px] lg:w-[400px]">
               <Swiper
                 slidesPerView={1}
@@ -129,7 +130,6 @@ export default function ProductDetailComp({ id }: { id: string }) {
                 {detail?.images && (
                   <>
                     {Object.entries(detail.images).map(([index, img]) => (
-                      // <SwiperSlide key={index} className="w-[calc((100%-16px)/3)] overflow-hidden rounded-xl">
                       <SwiperSlide key={index} className="overflow-hidden rounded-xl">
                         <img src={img} alt={detail.slug} />
                       </SwiperSlide>
@@ -139,9 +139,9 @@ export default function ProductDetailComp({ id }: { id: string }) {
               </Swiper>
             </div>
             <div className="w-full md:w-[calc(100%-330px)] lg:w-[calc(100%-430px)]">
-              <div className="mb-1 text-right text-xs uppercase">{detail?.category?.name}</div>
+              <div className="mb-1 text-xs uppercase md:text-right">{detail?.category?.name}</div>
               <div className="flex items-center justify-between">
-                <b className="mb-2 block">{detail?.title}</b>
+                <b className="block">{detail?.title}</b>
                 <div>
                   <button type="button" onClick={shareModalOpen}>
                     <IconShare />
@@ -192,6 +192,9 @@ export default function ProductDetailComp({ id }: { id: string }) {
           </div>
         </div>
         <div className="bot"></div>
+        <ProductBottomFix showOn="mo">
+          <div>ss</div>
+        </ProductBottomFix>
       </div>
     </>
   );
