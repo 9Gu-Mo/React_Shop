@@ -89,26 +89,28 @@ export default function ProductDetailComp({ id }: { id: string }) {
 
   return (
     <>
-      <div className="mt-4">
+      <div>
         <div className="top">
-          <div className="detail flex flex-wrap gap-[30px]">
-            <div className="image">
+          <div className="detail flex flex-wrap md:gap-[30px]">
+            <div className="w-full md:w-[300px] lg:w-[400px]">
               <Swiper
                 slidesPerView={1}
                 modules={[Thumbs, Autoplay, EffectFade]}
                 thumbs={{ swiper: thumbSwiper }}
-                className="rounded-xl"
+                className="w-full rounded-xl"
                 resistanceRatio={0}
                 autoplay={{
                   delay: 3000,
                   disableOnInteraction: false,
                 }}
                 effect={"fade"}
+                watchOverflow
+                onBeforeResize={(swiper) => swiper.update()}
               >
                 {detail?.images && (
                   <>
                     {Object.entries(detail.images).map(([index, img]) => (
-                      <SwiperSlide key={index}>
+                      <SwiperSlide key={index} className="!w-full">
                         <img src={img} alt={detail.slug} />
                       </SwiperSlide>
                     ))}
@@ -127,7 +129,8 @@ export default function ProductDetailComp({ id }: { id: string }) {
                 {detail?.images && (
                   <>
                     {Object.entries(detail.images).map(([index, img]) => (
-                      <SwiperSlide key={index} className="h-[128px] overflow-hidden rounded-xl">
+                      // <SwiperSlide key={index} className="w-[calc((100%-16px)/3)] overflow-hidden rounded-xl">
+                      <SwiperSlide key={index} className="overflow-hidden rounded-xl">
                         <img src={img} alt={detail.slug} />
                       </SwiperSlide>
                     ))}
@@ -135,7 +138,7 @@ export default function ProductDetailComp({ id }: { id: string }) {
                 )}
               </Swiper>
             </div>
-            <div className="notice">
+            <div className="w-full md:w-[calc(100%-330px)] lg:w-[calc(100%-430px)]">
               <div className="mb-1 text-right text-xs uppercase">{detail?.category?.name}</div>
               <div className="flex items-center justify-between">
                 <b className="mb-2 block">{detail?.title}</b>

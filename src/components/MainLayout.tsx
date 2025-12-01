@@ -10,7 +10,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     <>
       <div className="flex min-h-dvh flex-col">
         <Header />
-        <main className="mx-auto max-w-7xl flex-1 px-4">{children}</main>
+        <main className="mx-auto flex-1 px-4">{children}</main>
         <Footer />
         <FixButton />
       </div>

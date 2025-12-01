@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Product } from "@/src/types/product.types";
 
 // style
-import "@/src/styles/component/product.scss";
+// import "@/src/styles/component/product.scss";
 
 // lib
 import clsx from "clsx";

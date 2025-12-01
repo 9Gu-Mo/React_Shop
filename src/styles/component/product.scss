@@ -27,17 +27,18 @@
 }
 
 .detail {
-  .image {
-    width: 400px;
+  > div {
+    transition: all 0.5s;
   }
 
-  .notice {
-    width: calc(100% - 430px);
+  .swiper-slide {
+    width: 100% !important;
   }
 }
 
 .thumb-slide {
   .swiper-slide {
+    width: calc((100% - 16px) / 3) !important;
     &-thumb-active {
       border: 1px solid #000;
     }
