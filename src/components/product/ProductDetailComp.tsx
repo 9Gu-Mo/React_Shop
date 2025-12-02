@@ -9,6 +9,8 @@ import IconPlus from "../icon/IconPlus";
 import IconShare from "../icon/IconShare";
 import Modal from "../layout/Modal";
 import InputText from "../InputText";
+import ProductBottomFix from "./ProductBottomFix";
+import FramerModal from "../layout/FramerModal";
 
 // hook
 import { useEffect, useState } from "react";
@@ -20,7 +22,6 @@ import { Product } from "@/src/types/product.types";
 import "@/src/styles/component/product.scss";
 import "swiper/css/effect-fade";
 import "swiper/css/thumbs";
-import ProductBottomFix from "./ProductBottomFix";
 
 export default function ProductDetailComp({ id }: { id: string }) {
   // 상품 api state
@@ -33,8 +34,11 @@ export default function ProductDetailComp({ id }: { id: string }) {
   // 상품 count state
   const [count, setCount] = useState<number>(1);
 
+  // 상품 이미지 상세 모달 open state
+  const [openImgModal, setOpenImgModal] = useState(false);
+
   // URL 공유 모달 open state
-  const [open, setOpen] = useState(false);
+  const [openShareModal, setOpenShareModal] = useState(false);
 
   // URL 저장 state
   const [url, setUrl] = useState("");
@@ -50,9 +54,14 @@ export default function ProductDetailComp({ id }: { id: string }) {
     }
   };
 
+  // 상품 이미지 상세 모달 open function
+  const imgModalOpen = () => {
+    setOpenImgModal(!openImgModal);
+  };
+
   // URL 공유 모달 open function
   const shareModalOpen = () => {
-    setOpen(!open);
+    setOpenShareModal(!openShareModal);
   };
 
   // URL 복사 저장 함수
@@ -111,13 +120,33 @@ export default function ProductDetailComp({ id }: { id: string }) {
                 {detail?.images && (
                   <>
                     {Object.entries(detail.images).map(([index, img]) => (
-                      <SwiperSlide key={index} className="!w-full">
+                      <SwiperSlide key={index} className="!w-full" onClick={imgModalOpen}>
                         <img src={img} alt={detail.slug} />
                       </SwiperSlide>
                     ))}
                   </>
                 )}
               </Swiper>
+
+              {openImgModal && (
+                <FramerModal bottom dark isOpen={openImgModal} onClose={imgModalOpen}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius suscipit officiis debitis aliquam
+                  fugiat! Assumenda veritatis explicabo exercitationem quisquam, obcaecati illo asperiores maxime. Nisi
+                  optio, vitae asperiores dolor at aliquam? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eius suscipit officiis debitis aliquam fugiat! Assumenda veritatis explicabo exercitationem quisquam,
+                  obcaecati illo asperiores maxime. Nisi optio, vitae asperiores dolor at aliquam? Lorem ipsum dolor sit
+                  amet consectetur adipisicing elit. Eius suscipit officiis debitis aliquam fugiat! Assumenda veritatis
+                  explicabo exercitationem quisquam, obcaecati illo asperiores maxime. Nisi optio, vitae asperiores
+                  dolor at aliquam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius suscipit officiis
+                  debitis aliquam fugiat! Assumenda veritatis explicabo exercitationem quisquam, obcaecati illo
+                  asperiores maxime. Nisi optio, vitae asperiores dolor at aliquam? Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Eius suscipit officiis debitis aliquam fugiat! Assumenda veritatis
+                  explicabo exercitationem quisquam, obcaecati illo asperiores maxime. Nisi optio, vitae asperiores
+                  dolor at aliquam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius suscipit officiis
+                  debitis aliquam fugiat! Assumenda veritatis explicabo exercitationem quisquam, obcaecati illo
+                  asperiores maxime. Nisi optio, vitae asperiores dolor at aliquam?
+                </FramerModal>
+              )}
 
               <Swiper
                 onSwiper={setThumbSwiper}
@@ -147,7 +176,7 @@ export default function ProductDetailComp({ id }: { id: string }) {
                     <IconShare />
                   </button>
                 </div>
-                {open && (
+                {openShareModal && (
                   <>
                     <Modal title="URL 공유" onClick={shareModalOpen}>
                       <div className="flex gap-2">
@@ -192,7 +221,7 @@ export default function ProductDetailComp({ id }: { id: string }) {
           </div>
         </div>
         <div className="bot"></div>
-        <ProductBottomFix showOn="all">
+        <ProductBottomFix showOn="mo">
           <div>ss</div>
         </ProductBottomFix>
       </div>

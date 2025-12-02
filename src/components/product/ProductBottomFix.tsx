@@ -65,7 +65,7 @@ export default function ProductBottomFix({
 
   return (
     <>
-      <div ref={bottomRef} className={`fixed bottom-0 left-0 right-0 z-50 ${className}`}>
+      <div ref={bottomRef} className={`fixed bottom-0 left-0 right-0 z-40 ${className}`}>
         {children}
       </div>
     </>
