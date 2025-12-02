@@ -118,7 +118,7 @@ export default function ProductDetailComp({ id }: { id: string }) {
                 {detail?.images && (
                   <>
                     {Object.entries(detail.images).map(([index, img]) => (
-                      <SwiperSlide key={index} className="!w-full" onClick={imgModalOpen}>
+                      <SwiperSlide key={index} onClick={imgModalOpen}>
                         <img src={img} alt={detail.slug} />
                       </SwiperSlide>
                     ))}
@@ -140,7 +140,7 @@ export default function ProductDetailComp({ id }: { id: string }) {
                     {detail?.images && (
                       <>
                         {Object.entries(detail.images).map(([index, img]) => (
-                          <SwiperSlide key={index} className="!w-full" onClick={imgModalOpen}>
+                          <SwiperSlide key={index} onClick={imgModalOpen}>
                             <img src={img} alt={detail.slug} />
                           </SwiperSlide>
                         ))}

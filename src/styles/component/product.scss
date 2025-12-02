@@ -32,7 +32,11 @@
   }
 
   .swiper-slide {
-    width: 100% !important;
+    img {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
   }
 }
 
