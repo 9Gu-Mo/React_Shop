@@ -12,3 +12,13 @@
     flex: 1;
   }
 }
+
+.img-slide {
+  .swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #8a8a8a;
+  }
+}

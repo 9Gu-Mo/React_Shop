@@ -111,8 +111,11 @@ export default function FramerModal({ isOpen, onClose, children, title, animatio
             </div>
 
             {/* content */}
-            {/* <div className="flex-1 overflow-y-auto p-2">{children}</div> */}
-            <div className={`flex-1 overflow-y-auto p-2 ${dark && `text-white`}`}>{children}</div>
+            <div
+              className={`h-[calc(100dvh-56px)] flex-1 overflow-y-auto ${dark ? `flex items-center text-white` : `p-2`}`}
+            >
+              {children}
+            </div>
           </motion.div>
         </>
       )}

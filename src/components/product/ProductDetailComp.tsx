@@ -2,7 +2,7 @@
 
 // component
 import { Swiper as SwiperType } from "swiper";
-import { Autoplay, EffectFade, Thumbs } from "swiper/modules";
+import { Autoplay, EffectFade, Pagination, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import IconMinus from "../icon/IconMinus";
 import IconPlus from "../icon/IconPlus";
@@ -114,8 +114,6 @@ export default function ProductDetailComp({ id }: { id: string }) {
                   disableOnInteraction: false,
                 }}
                 effect={"fade"}
-                watchOverflow
-                onBeforeResize={(swiper) => swiper.update()}
               >
                 {detail?.images && (
                   <>
@@ -129,22 +127,26 @@ export default function ProductDetailComp({ id }: { id: string }) {
               </Swiper>
 
               {openImgModal && (
-                <FramerModal bottom dark isOpen={openImgModal} onClose={imgModalOpen}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius suscipit officiis debitis aliquam
-                  fugiat! Assumenda veritatis explicabo exercitationem quisquam, obcaecati illo asperiores maxime. Nisi
-                  optio, vitae asperiores dolor at aliquam? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Eius suscipit officiis debitis aliquam fugiat! Assumenda veritatis explicabo exercitationem quisquam,
-                  obcaecati illo asperiores maxime. Nisi optio, vitae asperiores dolor at aliquam? Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Eius suscipit officiis debitis aliquam fugiat! Assumenda veritatis
-                  explicabo exercitationem quisquam, obcaecati illo asperiores maxime. Nisi optio, vitae asperiores
-                  dolor at aliquam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius suscipit officiis
-                  debitis aliquam fugiat! Assumenda veritatis explicabo exercitationem quisquam, obcaecati illo
-                  asperiores maxime. Nisi optio, vitae asperiores dolor at aliquam? Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Eius suscipit officiis debitis aliquam fugiat! Assumenda veritatis
-                  explicabo exercitationem quisquam, obcaecati illo asperiores maxime. Nisi optio, vitae asperiores
-                  dolor at aliquam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius suscipit officiis
-                  debitis aliquam fugiat! Assumenda veritatis explicabo exercitationem quisquam, obcaecati illo
-                  asperiores maxime. Nisi optio, vitae asperiores dolor at aliquam?
+                <FramerModal dark isOpen={openImgModal} onClose={imgModalOpen}>
+                  <Swiper
+                    slidesPerView={1}
+                    pagination={{
+                      type: "fraction",
+                    }}
+                    modules={[Pagination]}
+                    className="img-slide static w-full"
+                    resistanceRatio={0}
+                  >
+                    {detail?.images && (
+                      <>
+                        {Object.entries(detail.images).map(([index, img]) => (
+                          <SwiperSlide key={index} className="!w-full" onClick={imgModalOpen}>
+                            <img src={img} alt={detail.slug} />
+                          </SwiperSlide>
+                        ))}
+                      </>
+                    )}
+                  </Swiper>
                 </FramerModal>
               )}
 
