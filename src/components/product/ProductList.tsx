@@ -6,9 +6,6 @@
 // type
 import { Product } from "@/src/types/product.types";
 
-// hook
-import { useState } from "react";
-
 // component
 import ProductItem from "./ProductItem";
 
@@ -17,8 +14,7 @@ interface Props {
 }
 
 export default function ProductList({ initialProduct }: Props) {
-  // const [products, setProducts] = useState(initialProduct);
-  const [products, setProducts] = useState(initialProduct);
+  const products = initialProduct;
 
   return (
     <>
