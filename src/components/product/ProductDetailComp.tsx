@@ -23,10 +23,13 @@ import "@/src/styles/component/product.scss";
 import "swiper/css/effect-fade";
 import "swiper/css/thumbs";
 
-export default function ProductDetailComp({ id }: { id: string }) {
+interface Props {
+  product: Product;
+}
+
+export default function ProductDetailComp({ product }: Props) {
   // 상품 api state
-  const [detail, setDetail] = useState<Product>();
-  const [loading, setLoading] = useState(true);
+  const detail = product;
 
   // 상품 thumbnail slide state
   const [thumbSwiper, setThumbSwiper] = useState<SwiperType | null>(null);
@@ -74,28 +77,10 @@ export default function ProductDetailComp({ id }: { id: string }) {
     }
   };
 
-  useEffect(() => {
-    const fetchDetail = async () => {
-      try {
-        const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`);
-        const data = await res.json();
-        setDetail(data);
-      } catch {
-        console.log("catch");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchDetail();
-  }, [id]);
-
   // URL 저장
   useEffect(() => {
     setUrl(window.location.href);
   }, []);
-
-  if (loading) return <p>loading</p>;
 
   return (
     <>
