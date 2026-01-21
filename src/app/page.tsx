@@ -1,5 +1,4 @@
 import List from "../components/List";
-import MotionTest from "../components/MotionTest";
 import ProductSlide from "../components/product/ProductSlide";
 import SmoothTabs from "../components/SmoothTabs";
 
@@ -26,9 +25,6 @@ export default function Home() {
       </div>
       <div>
         <SmoothTabs tabs={tabs} />
-      </div>
-      <div>
-        <MotionTest />
       </div>
       <div className="px-2 sm:px-8">
         <List />

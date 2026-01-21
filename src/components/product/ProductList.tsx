@@ -1,37 +1,27 @@
 "use client";
 
 // api
-import { fetchProducts } from "@/src/lib/api/products";
+// import { fetchProducts } from "@/src/lib/api/products";
 
 // type
 import { Product } from "@/src/types/product.types";
 
 // hook
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // component
-import LoadingComp from "../LoadingComp";
 import ProductItem from "./ProductItem";
-import ProductFilter from "./ProductFilter";
 
-export default function ProductList() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+interface Props {
+  initialProduct: Product[];
+}
 
-  useEffect(() => {
-    fetchProducts()
-      .then((data) => setProducts(data))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (loading) return <LoadingComp />;
-  if (error) return <div>에러 발생: {error}</div>;
+export default function ProductList({ initialProduct }: Props) {
+  // const [products, setProducts] = useState(initialProduct);
+  const [products] = useState(initialProduct);
 
   return (
     <>
-      <ProductFilter />
       <div className="product mx-auto flex max-w-7xl flex-wrap border-t-[1px] border-black">
         {products.map((item) => (
           <ProductItem key={item.id} {...item} />
