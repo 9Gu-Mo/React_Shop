@@ -18,7 +18,7 @@ interface Props {
 
 export default function ProductList({ initialProduct }: Props) {
   // const [products, setProducts] = useState(initialProduct);
-  const [products] = useState(initialProduct);
+  const [products, setProducts] = useState(initialProduct);
 
   return (
     <>
