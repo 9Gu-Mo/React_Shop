@@ -26,6 +26,29 @@ select {
   }
 }
 
+label {
+  cursor: pointer;
+}
+
 svg {
   display: inline-block;
+}
+
+.checkbox {
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background-color: transparent;
+  }
+
+  &.checked {
+    &::before {
+      background-color: black;
+    }
+  }
 }

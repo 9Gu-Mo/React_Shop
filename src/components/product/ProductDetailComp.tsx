@@ -77,6 +77,16 @@ export default function ProductDetailComp({ product }: Props) {
     }
   };
 
+  // 장바구니 담기
+  const onClickCart = () => {
+    if (confirm("해당 상품이 장바구니에 담겼습니다. 장바구니로 이동하시겠습니까?")) {
+      alert("장바구니 이동");
+      window.location.href = `http://localhost:4000/cart`;
+    } else {
+      return;
+    }
+  };
+
   // URL 저장
   useEffect(() => {
     setUrl(window.location.href);
@@ -204,6 +214,9 @@ export default function ProductDetailComp({ product }: Props) {
                   </div>
                 )}
               </div>
+              <button type="button" onClick={onClickCart}>
+                장바구니
+              </button>
             </div>
           </div>
         </div>

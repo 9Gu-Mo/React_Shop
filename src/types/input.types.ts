@@ -1,6 +1,7 @@
 // Input inerface
 export interface Input {
   id: string;
+  label?: string;
   type?: string;
   name?: string;
   placeholder?: string;
