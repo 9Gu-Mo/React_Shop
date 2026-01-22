@@ -86,9 +86,9 @@ export default function Header() {
         <Link href={"/"}>SHOP LOGO</Link>
       </h1>
       <div className="flex">
-        <button type="button">
+        <Link href={"/products/cart"}>
           <IconCart color="#1C274C" size="24" />
-        </button>
+        </Link>
         <button onClick={darkModeToggle} type="button">
           {mode ? <IconDarkMode size="24" /> : <IconWhiteMode size="24" />}
         </button>
