@@ -4,6 +4,7 @@ export interface Input {
   label?: string;
   type?: string;
   name?: string;
+  checked?: boolean;
   placeholder?: string;
   readOnly?: boolean;
   disabled?: boolean;
